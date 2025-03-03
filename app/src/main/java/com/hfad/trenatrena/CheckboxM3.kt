@@ -29,18 +29,22 @@ fun CheckboxM3(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
         items.forEach { item ->
+            // Создаем строку (Row) для отображения элементов по горизонтали
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
-                    .toggleable(
-                        value = checkboxStates.getValue(item),
-                        onValueChange = { checkboxStates[item] = it }
+                modifier = Modifier // Устанавливаем модификаторы для настройки внешнего вида Row
+                    .fillMaxWidth() // Строка будет занимать всю ширину доступного пространства
+                    .height(56.dp) // Высота строки фиксируется на уровне 56 dp (density-independent pixels)
+                    .toggleable( // Добавляем интерактивный модификатор, который делает Row переключаемым
+                        value = checkboxStates.getValue(item), // Получаем текущее состояние (true или false) для элемента по ключу 'item' из коллекции 'checkboxStates'
+                        onValueChange = { // Обработка изменения состояния при взаимодействии с пользователем
+                            checkboxStates[item] = it // Обновляем состояние элемента в 'checkboxStates' при изменении (it содержит новое значение)
+                        }
                     )
-                    .padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
+                    .padding(horizontal = 16.dp), // Добавляем горизонтальные отступы по 16 dp слева и справа
+                verticalAlignment = Alignment.CenterVertically // Выравниваем содержимое внутри строки по вертикали по центру
             ) {
-                Checkbox(
+
+            Checkbox(
                     checked = checkboxStates.getValue(item),
                     onCheckedChange = null
                 )
