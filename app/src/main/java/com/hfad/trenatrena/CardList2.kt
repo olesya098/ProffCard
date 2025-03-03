@@ -22,6 +22,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.hfad.trenatrena.Cardds.CardItem
+
 @Composable
 fun CardList2 (navController: NavController) {
     // Состояние для хранения списка карточек
