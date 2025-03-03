@@ -71,7 +71,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             TrenaTrenaTheme {
                 // Создаём список карточек, который будет автоматически обновлять UI при изменении
-                val cardList = remember { mutableStateListOf<CardItem>() }
+                val cardList = remember {
+                    mutableStateListOf(
+                        CardItem(1, "Карточка 1", "Описание карточки 1"),
+                        CardItem(2, "Карточка 2", "Описание карточки 2"),
+                        CardItem(3, "Карточка 3", "Описание карточки 3")
+                    )
+                }
                 // Создаём счётчик для генерации уникальных ID карточек
                 val counter = remember { mutableStateOf(0) }
 

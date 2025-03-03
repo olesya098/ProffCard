@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hfad.trenatrena.CardList2
 import com.hfad.trenatrena.Cards
+import com.hfad.trenatrena.CheckboxM3
 import com.hfad.trenatrena.Main
 import com.hfad.trenatrena.MenusM3
 import com.hfad.trenatrena.ProbaSli
@@ -22,6 +23,7 @@ sealed class Screen(val route: String) {
     object CardList2 : Screen("CardList2")
     object MenusM3 : Screen("MenusM3")
     object Cards : Screen("Cards")
+    object CheckboxM3 : Screen("CheckboxM3")
 }
 
 @Composable
@@ -33,7 +35,7 @@ fun Navigate(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Cards.route,
+        startDestination = Screen.CardList.route,
         modifier = Modifier.background(Color.Transparent)
     ) {
         composable(Screen.CardList.route) {
@@ -55,6 +57,9 @@ fun Navigate(
         }
         composable(Screen.Cards.route) {
             Cards(navController)
+        }
+        composable(Screen.CheckboxM3.route) {
+            CheckboxM3(navController)
         }
         // Маршрут для экрана добавления карточки
         // Определяем композируемый экран с использованием маршрута экрана 'AddCardScreen'
