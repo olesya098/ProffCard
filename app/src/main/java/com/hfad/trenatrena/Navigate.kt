@@ -16,6 +16,7 @@ sealed class Screen(val route: String){
     object AddCardScreen: Screen("AddCardScreen")
     object CardList2: Screen("CardList2")
     object MenusM3: Screen("MenusM3")
+    object Cards: Screen("Cards")
 }
 @Composable
 fun Navigate(
@@ -26,7 +27,7 @@ fun Navigate(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.MenusM3.route,
+        startDestination = Screen.Cards.route,
         modifier = Modifier.background(Color.Transparent)
     ) {
         composable(Screen.CardList.route) {
@@ -45,6 +46,9 @@ fun Navigate(
         }
         composable(Screen.MenusM3.route) {
             MenusM3(navController)
+        }
+        composable(Screen.Cards.route) {
+            Cards(navController)
         }
         // Маршрут для экрана добавления карточки
         composable(Screen.AddCardScreen.route) {
